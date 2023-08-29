@@ -22,6 +22,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum("tipo", User::TIPO_ENUM)->default(User::TIPO_ENUM['user']);
+            $table->boolean('status')->default(true);
+            $table->string('tempo_bloqueio')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

@@ -12,6 +12,12 @@ class TipoVisita extends Model
 
     protected $fillable = ['nome', 'descricao', 'duracao'];
 
+    public const TIPO_ENUM = [
+        "aprovado" => "aprovado",
+        "aguardando" => "aguardando",
+        "reprovado" => "reprovado"
+    ];
+
     public function visitas(): HasMany
     {
         return $this->hasMany(Visita::class);

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TipoVisitaController;
 use App\Http\Controllers\UserController;
@@ -53,5 +54,17 @@ Route::middleware('auth')->prefix('tipoVisita')->name('tipoVisita.')->group(func
     Route::post('/update/{id}', [TipoVisitaController::class, 'update'])->name('update');
     Route::get('/delete/{id}', [TipoVisitaController::class, 'delete'])->name('delete');
 });
+
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/solicitacoes', [AdminController::class, 'solicitacoes'])->name('solicitacoes');
+    Route::get('/aprovar/{id}', [AdminController::class, 'aprovar'])->name('aprovar');
+    Route::get('/reprovar/{id}', [AdminController::class, 'reprovar'])->name('reprovar'); 
+});
+
+Route::middleware('auth')->prefix('professor')->name('professor.')->group(function () {
+    Route::get('/solicitar', [AdminController::class, 'solicitar'])->name('solicitar');
+   
+});
+
 
 require __DIR__.'/auth.php';

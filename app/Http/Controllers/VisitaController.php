@@ -62,8 +62,8 @@ class VisitaController extends Controller
 
     public function show($id)
     {
-        $visita = Visita::find($id);
-        return view('visita.show', compact('visita'));
+        $agendamento = Agendamento::find($id);
+        return view('visita.show', compact('agendamento'));
     }
 
     public function update(Request $request, $id)

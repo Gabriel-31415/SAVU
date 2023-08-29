@@ -52,7 +52,7 @@
                                 </td>
                                 <td class="py-3 px-6 text-center">
                                     <div class="flex items-center justify-center">
-                                        <span>{{ date('H:i', strtotime($agendamento->dia->horario)) }}</span>
+                                        <span>{{ date('H:i', strtotime($agendamento->horario->horario)) }}</span>
                                     </div>
                                 </td>
                                 <td class="py-3 px-6 text-center">

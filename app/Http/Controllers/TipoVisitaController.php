@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Foto;
 use App\Models\TipoVisita;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class TipoVisitaController extends Controller
 {
     public function index()
     {
-        $tipoVisitas = TipoVisita::all();
+        $tipoVisitas = TipoVisita::where('aprovado', TipoVisita::TIPO_ENUM['aprovado'])->get();
         return view('tipoVisita.index', compact('tipoVisitas'));
     }
 
@@ -22,6 +24,10 @@ class TipoVisitaController extends Controller
     public function store(Request $request)
     {
         $tipoVisita = TipoVisita::create( $request->all() );
+        if( Auth::user()->tipo === User::TIPO_ENUM['professor'] ){
+            $tipoVisita->aprovado = TipoVisita::TIPO_ENUM['aguardando'];
+            $tipoVisita->save();
+        }
         foreach ($request->file('images') as $imagefile) {
             $foto = new Foto;
             $path = $imagefile->storeAs(

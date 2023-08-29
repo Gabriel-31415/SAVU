@@ -31,12 +31,18 @@
                             {{ __('Visitas') }}
                         </x-nav-link>
                     </div>
-                @endcan
-
+                @endcan                
                 @can('ver-tipo-visita')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('tipoVisita.index')" :active="request()->routeIs('tipoVisita.index')">
                             {{ __('Tipo Visitas') }}
+                        </x-nav-link>
+                    </div>
+                @endcan
+                @can('ver-solicitacao')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('admin.solicitacoes')" :active="request()->routeIs('admin.solicitacoes')">
+                            {{ __('Solicitações') }}
                         </x-nav-link>
                     </div>
                 @endcan
