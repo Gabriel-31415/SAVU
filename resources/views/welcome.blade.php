@@ -35,32 +35,34 @@
                 <div class="flex justify-center">
                     <p style="font-size: 70px; color:white; margin-top:20px" >SAVU</p>
                     <img src="{{  URL::to('/').'/imagem/logo.png' }}" width="100" height="100" alt="savu" srcset="">
+                    
                 </div>
-
+                <div class="flex justify-center">
+                    <p class="mt-4 ml-4 text-black-500 dark:text-white text-sm leading-relaxed">
+                        Sistema de Agendamento de Visitas Universitárias
+                    </p>
+                </div>
                 <div class="mt-16">
-                    <div class="flex ">
-                        <div>
-                            <a href="https://laravel.com/docs" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                                <div class="">
+                    <div class="flex flex-row">
+                        <div class="mx-auto">
+                            <a href="{{  URL::to('/visita/minhasVisitas') }}" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
+                                <div >
                                     <div class="items-center justify-center">
                                         <div class="  flex items-center justify-center rounded-full">
                                             <img src="{{  URL::to('/').'/imagem/logo.png' }}" width="50" height="50" alt="savu" srcset="">
                                         </div>
                                         <h2 class="mt-12 text-center text-xl font-semibold text-white dark:text-white">
-                                            SAVU
+                                            Agende uma visita
                                         </h2>
-                        
-                                        <p class="mt-4 text-black-500 dark:text-white text-sm leading-relaxed">
-                                            Sistema de Agendamento de Visitas Universitárias
+                                        <p class="mt-4 ml-4 text-black-500 dark:text-white text-sm leading-relaxed">
+                                            UNIVERSIDADE FEDERAL DO AGRESTE DE PERNAMBUCO
                                         </p>
                                     </div>
                                 </div>
                             </a>
-                        </div>                        
-                    </div>
-                </div>
-
-    
+                        </div> 
+                    </div>                  
+                </div>    
             </div>
         </div>
     </body>

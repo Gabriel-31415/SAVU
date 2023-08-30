@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TipoVisitaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VisitaController;
+use App\Models\TipoVisita;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $tipoVisita = TipoVisita::find(5);
+    return view('welcome', compact('tipoVisita'));
 })->name('welcome');
 
 
