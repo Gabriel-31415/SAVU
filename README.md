@@ -1,66 +1,50 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><img src="https://github.com/GeovanioJose/savu/assets/39468150/dcc87af8-f3fc-471f-976a-0cc0efbc8bae"/>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+</div>
 
-## About Laravel
+<h3>Equipe:   
+   <a href = "https://github.com/FabioFreire-ff">Fábio Freire</a> |
+   <a href = "https://github.com/Gabriel-31415">Gabriel Antônio da Silva</a> |
+   <a href = "https://github.com/GeovanioJose">Geovânio José da Silva</a> |
+   <a href = "https://github.com/Luiz-Felipe12">Luiz Felipe Ferreira</a> |
+   <a href = "https://github.com/Marcos-Vinicius-UFAPE">Marcos Vinivius</a>
+</h3>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<h1>URL do Projeto</h1>
+<h4>
+   <a href = "https://github.com/Projeto-Des-SW/savu">SAVU</a>
+</h4>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<h1>Sobre o Projeto:</h1>
+<h4>Projeto para implementação de um sistema em PHP/LARAVEL para a disciplina de Projeto de Desenvolvimento ministrado pelo Professor Dr. <a href = "https://github.com/rgcrochaa">Rodrigo Rocha</a>, da UFAPE, referente ao período de 2022.2 com intuito de avaliação para a disciplina. O sistema será utilizado para realização de agendamento de visita universitária na UFAPE, trazendo diversos benefícios para a IES e, também, para os visitantes interessados em conhecer suas instalações, permitindo que eles possam utilizar um sistema web intuitivo que facilita a comunicação entre os visitantes e a instituição de ensino. 
+</h4>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<h2>Viabilidade do projeto:</h2>
+   <h4>Atualmente, a Universidade Federal Rural de Pernambuco não dispõe de um sistema de gerenciamento de visitas externas para auxiliar no registro de visitantes, agendamento de visitas, controle de acesso, geração de relatórios, entre outros. Hoje em dia, a IES possui 5 exibições que recebem público externo, elas são: Laboratório de Microrganismos de rúmen,    Laboratório de Polinização, Museu de Ciência Animal, Exposição de solos e "UFAPE: cursos e instalações".
+   </h4>
+<h2>Usuários:</h2>
+   <h4> O sistema deve possuir 3 tipos de usuários, são eles, Administrador, Professor e Visitante.
+    O Administrador pode gerenciar os professores cadastrados, disponibiliza as datas disponíveis para agendamento de visita, cria e edita os tipos de visitas, e, além disso, bloquea o acesso a funcionalidade de agendamento para visitantes que não realizam o cancelamento de uma visita ou não comparecem as visitas marcadas. O Professor fica responsável por gerenciar os agendamentos de visitas, aceitar ou recusar agendamentos.  O Visitante pode realiza o agendamento de visita ou realizar o cancelamento da visita.
+   </h4>
+   
+<h1>Artefatos e documentação:</h1>
+<h3><a href = "https://docs.google.com/document/d/1THiSBmt9uR8h5qNHuEk270jXHdZgE_UX/edit?usp=sharing&ouid=108367508460107310368&rtpof=true&sd=true" target="_blank">Estudo de Viabilidade</a></h3>
+<h3><a href = "https://docs.google.com/document/d/1s7qoBNqSdHSRAMb6Xw_NuYZJQ9-g4zxv/edit?usp=drive_link" target="_blank">TAP</a></h3>
+<h3><a href = "https://www.figma.com/file/i3Rs3VWaLnbelgON7xA4ON/SAVU?type=design&node-id=0-1&mode=design" target="_blank">Protótipo</a></h3>
+<h3><a href = "https://docs.google.com/document/d/1lvgVz0r3WXYROUuT3VwSLuTwXXGf8O_aswJjMAnBja4/edit?usp=drive_link" target="_blank">MER</a></h3>
+<h3><a href = "https://docs.google.com/document/d/1EZ6AqvUHf-8joce-iO_EB7RvtJeN-KL0/edit?usp=drive_link&ouid=108367508460107310368&rtpof=true&sd=true" target="_blank">Plano de Projeto</a></h3>
 
-## Learning Laravel
+<h1>Tecnologias Usadas:</h1>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<h3><a href = "https://www.php.net/">PHP</a></h3>
+<ul>
+   <li>Versão: 8.2.4</li>
+</ul>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+<h3><a href = "https://laravel.com/">Laravel</a></h3>
+<ul>
+   <li>Versão: 9.0</li>
+</ul>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<h1>Status do projeto:</h1>
+<h4>Em andamento</h4>
