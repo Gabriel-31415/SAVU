@@ -1,5 +1,4 @@
-<h1>Sistema de Agendamento de visitas Universitárias - SAVU</h1>
-<img src="https://github.com/GeovanioJose/savu/assets/39468150/dcc87af8-f3fc-471f-976a-0cc0efbc8bae"/>
+<p align="center"><img src="https://github.com/GeovanioJose/savu/assets/39468150/dcc87af8-f3fc-471f-976a-0cc0efbc8bae"/>
 
 </div>
 
