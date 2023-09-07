@@ -20,8 +20,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $tipoVisita = TipoVisita::find(5);
-    return view('welcome', compact('tipoVisita'));
+    // $tipoVisita = TipoVisita::find(5);
+    // return view('welcome', compact('tipoVisita'));
+    return view('welcome');
 })->name('welcome');
 
 
