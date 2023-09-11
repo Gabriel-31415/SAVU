@@ -46,7 +46,11 @@
                 <br>
 
                 <x-primary-button class="bg-green-500"> Salvar</x-primary-button>
-
+                <x-secondary-button  class="bg-green-500">
+                    <a href="{{ url()->previous() }}">
+                        Voltar
+                    </a>
+                </x-secondary-button>
             </form>
 
         </div>

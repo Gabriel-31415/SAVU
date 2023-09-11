@@ -52,6 +52,11 @@
                 <br>
 
                 <x-primary-button class="bg-green-500"> Atualizar</x-primary-button>
+                <x-secondary-button  class="bg-green-500">
+                    <a href="{{ url()->previous() }}">
+                        Voltar
+                    </a>
+                </x-secondary-button>
 
             </form>
 
