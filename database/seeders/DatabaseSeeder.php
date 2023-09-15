@@ -50,42 +50,42 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
         ]);
         
-        DB::table('tipo_visitas')->insert([
-            'nome' => 'Laboratório de Microorganismos de rúmen',
-            'descricao' => 'Visita a Laboratório de Microorganismos de rúmen',
-            'duracao' => '1h',
-        ]);
+        // DB::table('tipo_visitas')->insert([
+        //     'nome' => 'Laboratório de Microorganismos de rúmen',
+        //     'descricao' => 'Visita a Laboratório de Microorganismos de rúmen',
+        //     'duracao' => '1h',
+        // ]);
         
-        DB::table('tipo_visitas')->insert([
-            'nome' => 'Polinização',
-            'descricao' => 'Visita a Polinização',
-            'duracao' => '1h',
-        ]);
+        // DB::table('tipo_visitas')->insert([
+        //     'nome' => 'Polinização',
+        //     'descricao' => 'Visita a Polinização',
+        //     'duracao' => '1h',
+        // ]);
         
-        DB::table('tipo_visitas')->insert([
-            'nome' => 'Museu de Ciência Animal',
-            'descricao' => 'Visita ao Museu de Ciência Animal',
-            'duracao' => '1h',
-        ]);
+        // DB::table('tipo_visitas')->insert([
+        //     'nome' => 'Museu de Ciência Animal',
+        //     'descricao' => 'Visita ao Museu de Ciência Animal',
+        //     'duracao' => '1h',
+        // ]);
         
-        DB::table('tipo_visitas')->insert([
-            'nome' => 'Exposição de solos',
-            'descricao' => 'Visita a exposição de solos',
-            'duracao' => '1h',
-        ]);
+        // DB::table('tipo_visitas')->insert([
+        //     'nome' => 'Exposição de solos',
+        //     'descricao' => 'Visita a exposição de solos',
+        //     'duracao' => '1h',
+        // ]);
         
-        DB::table('tipo_visitas')->insert([
-            'nome' => 'UFAPE: cursos e instalações',
-            'descricao' => 'Visita a UFAPE: cursos e instalações',
-            'duracao' => '1h',
-        ]);
+        // DB::table('tipo_visitas')->insert([
+        //     'nome' => 'UFAPE: cursos e instalações',
+        //     'descricao' => 'Visita a UFAPE: cursos e instalações',
+        //     'duracao' => '1h',
+        // ]);
 
-        \App\Models\User::factory(10)->create();
-        // \App\Models\TipoVisita::factory(4)->create();
-        \App\Models\Visita::factory(10)->create();
-        \App\Models\Dia::factory(10)->create();
-        \App\Models\Horario::factory(10)->create();
-        \App\Models\Agendamento::factory(10)->create();
-        \App\Models\Foto::factory(10)->create();
+        // \App\Models\User::factory(10)->create();
+        // // \App\Models\TipoVisita::factory(4)->create();
+        // \App\Models\Visita::factory(10)->create();
+        // \App\Models\Dia::factory(10)->create();
+        // \App\Models\Horario::factory(10)->create();
+        // \App\Models\Agendamento::factory(10)->create();
+        // \App\Models\Foto::factory(10)->create();
     }
 }
