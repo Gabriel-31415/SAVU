@@ -18,6 +18,7 @@ class VisitaController extends Controller
     public function index()
     {
         $agendamentos = Agendamento::all();
+        
         return view('visita.index', compact('agendamentos'));
 
     }
@@ -89,6 +90,24 @@ class VisitaController extends Controller
     {
         $agendamento = Agendamento::find($id);
         return view('visita.show', compact('agendamento'));
+    }
+
+    public function aprovar($id)
+    {
+        $visita = Visita::find($id);
+        $visita->status = TipoVisita::TIPO_ENUM['aprovado'];
+        $visita->save();
+
+        return redirect()->route('visita.index')->with(['message' => "Aprovado!", 'class' => 'success']);
+    }
+
+    public function reprovar($id)
+    {
+        $visita = Visita::find($id);
+        $visita->status = TipoVisita::TIPO_ENUM['reprovado'];
+        $visita->save();
+
+        return redirect()->route('visita.index')->with(['message' => "Reprovado!", 'class' => 'success']);
     }
 
     public function update(Request $request, $id)
