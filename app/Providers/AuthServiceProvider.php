@@ -24,6 +24,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
  
+        Gate::define('admin', function ($user) {
+            return $user->tipo == User::TIPO_ENUM['admin'];
+        });
+
         Gate::define('ver-visita', function ($user) {
             return $user->tipo == User::TIPO_ENUM['admin'] ||
                     $user->tipo == User::TIPO_ENUM['professor'];
@@ -31,7 +35,6 @@ class AuthServiceProvider extends ServiceProvider
         
         Gate::define('ver-minha-visita', function ($user) {
             return $user->tipo == User::TIPO_ENUM['user'] ||
-                    $user->tipo == User::TIPO_ENUM['admin'] ||
                     $user->tipo == User::TIPO_ENUM['professor'];
         });
     

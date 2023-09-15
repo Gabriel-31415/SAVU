@@ -19,6 +19,19 @@ return new class extends Migration
             $table->string('duracao');
             $table->boolean('status')->default(true);
             $table->string('aprovado')->default(TipoVisita::TIPO_ENUM['aprovado']);
+            $table->boolean("funciona_domingo")->default(false);
+            $table->boolean("funciona_segunda")->default(false);
+            $table->boolean("funciona_terca")->default(false);
+            $table->boolean("funciona_quarta")->default(false);
+            $table->boolean("funciona_quinta")->default(false);
+            $table->boolean("funciona_sexta")->default(false);
+            $table->boolean("funciona_sabado")->default(false);
+            $table->time('manha_inicio')->nullable(true);
+            $table->time('manha_fim')->nullable(true);
+            $table->time('tarde_inicio')->nullable(true);
+            $table->time('tarde_fim')->nullable(true);
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }

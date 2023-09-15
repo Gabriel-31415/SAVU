@@ -9,4 +9,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Horario extends Model
 {
     use HasFactory, SoftDeletes;
+
+    protected $fillable = [
+        'horario',
+        'dia_id'
+    ];
+    protected $dates = [
+        'horario'
+    ];
 }

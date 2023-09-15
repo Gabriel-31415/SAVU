@@ -11,7 +11,7 @@ class Agendamento extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['user_id', 'visita_id', 'dia_id', 'horario_id'];
+    protected $fillable = ['nome', 'user_id', 'visita_id', 'dia_id', 'horario_id'];
 
     public function visita(): BelongsTo
     {

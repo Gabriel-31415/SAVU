@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('dia_id');
             $table->foreign('dia_id')->references('id')->on('dias');
-            $table->dateTime('horario');
+            $table->time('horario');
             $table->timestamps();
             $table->softDeletes();
         });

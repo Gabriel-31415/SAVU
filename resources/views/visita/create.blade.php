@@ -14,17 +14,43 @@
                 <div class="grid grid-cols-1 gap-4">
                     <div>
                         <x-input-label>Tipo de Visita</x-input-label>
-                        <x-select class="mt-2" name='tipo_visita_id'>
-                            @foreach ($tipoVisitas as $tipoVisita)
-                                <option value="{{ $tipoVisita->id }}">{{ $tipoVisita->nome }}</option>
+                        <x-select class="mt-2" name='tipo_visita_id' >
+                            @foreach ($tipoVisitas as $tipo)
+                                @if ( $tipo->id == $tipoVisita->id )
+                                    <option selected value="{{ $tipoVisita->id }}">{{ $tipoVisita->nome }}</option>
+                                @endif
                             @endforeach
                         </x-select>
                     </div>
+
+                    @php
+                    $weekMap = [
+                                0 => 'domingo',
+                                1 => 'segunda',
+                                2 => 'terca',
+                                3 => 'quarta',
+                                4 => 'quinta',
+                                5 => 'sexta',
+                                6 => 'sabado',
+                            ];
+                        $period = \Carbon\CarbonPeriod::create(now(), now()->addDays(15));
+                        $dates = [];
+                        foreach ($period as $date) {
+                            if(!($tipoVisita->funciona_domingo) && $date->isSunday()) {continue;}
+                            if(!($tipoVisita->funciona_segunda) && $date->isMonday()) {continue;}
+                            if(!($tipoVisita->funciona_terca) && $date->isTuesday()) {continue;}
+                            if(!($tipoVisita->funciona_quarta) && $date->isWednesday()) {continue;}
+                            if(!($tipoVisita->funciona_quinta) && $date->isThursday()) {continue;}
+                            if(!($tipoVisita->funciona_sexta) && $date->isFriday()) {continue;}
+                            if(!($tipoVisita->funciona_sabado) && $date->isSaturday()) {continue;}
+                            array_push( $dates, $date );
+                        }
+                    @endphp
                     <div>
                         <x-input-label>Data</x-input-label>
-                        <x-select class="mt-2" name='dia'>
-                            @foreach ($dias as $dia)
-                                <option value="{{ $dia->id }}">{{ date('d/m/Y', strtotime($dia->dia)) }}</option>
+                        <x-select class="mt-2" name='dia'> 
+                            @foreach ($dates as $date)
+                                <option value="{{ $date->format('d/m/Y') }}">{{ $date->format('d/m/Y') }}</option>
                             @endforeach
                         </x-select>
                         {{-- Componente datapicker --}}
@@ -43,12 +69,23 @@
 
                     </div>
                     <div>
-                        <x-input-label>Horario</x-input-label>
-                        <x-select class="mt-2" name='horario'>
+                        <x-input-label>Horario da manhã( {{ ' De ' . date('H:i', strtotime($tipoVisita->manha_inicio)) . ' às ' . date('H:i', strtotime($tipoVisita->manha_fim)) . ' '  }} ):</x-input-label>
+                        <input id="horario_manha" type="time" name="horario_manha" min="{{ date('H:i', strtotime($tipoVisita->manha_inicio)) }}" max="{{ date('H:i', strtotime($tipoVisita->manha_fim)) }}">
+                        <span class="validity"></span>
+                        {{-- <x-select class="mt-2" name='horario'>
                             @foreach ($horarios as $horario)
                                 <option value="{{ $horario->id }}">{{ date('H:i', strtotime($horario->horario)) }}</option>
                             @endforeach
-                        </x-select>
+                        </x-select> --}}
+                    </div>
+                    <div>
+                        <x-input-label>Horario da tarde( {{ ' De ' . date('H:i', strtotime($tipoVisita->tarde_inicio)) . ' às ' . date('H:i', strtotime($tipoVisita->tarde_fim)) . ' '  }} ):</x-input-label>
+                        <input id="horario_tarde" type="time" name="horario_tarde" min="12:00" max="18:00">
+                        {{-- <x-select class="mt-2" name='horario'>
+                            @foreach ($horarios as $horario)
+                                <option value="{{ $horario->id }}">{{ date('H:i', strtotime($horario->horario)) }}</option>
+                            @endforeach
+                        </x-select> --}}
                     </div>
                 </div>
 
@@ -61,6 +98,17 @@
 
         </div>
     </div>
-
+    <script>
+        document.getElementById("horario_manha").addEventListener("click", () => {
+                // document.getElementById("horario_manha").disabled = false;
+                // document.getElementById("horario_tarde").disabled = true;
+                document.getElementById("horario_tarde").value = '--:--';
+        } );
+        document.getElementById("horario_tarde").addEventListener("click", () => {
+                // document.getElementById("horario_tarde").disabled = false;
+                // document.getElementById("horario_manha").disabled = true;
+                document.getElementById("horario_manha").value = '--:--';
+          } );
+    </script>
 
 </x-app-layout>

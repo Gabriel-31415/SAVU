@@ -21,10 +21,11 @@ class AgendamentoFactory extends Factory
     public function definition(): array
     {
         return [
+            'nome' => fake()->name(),
             'user_id' => User::factory(),
-            'visita_id' => Visita::find(1)->id,
-            'dia_id' => Dia::factory(),
-            'horario_id' => Horario::factory(),
+            'visita_id' => fake()->numberBetween(1, 5),
+            'dia_id' => fake()->numberBetween(1, 5),
+            'horario_id' => fake()->numberBetween(1, 5),
         ];
     }
 }

@@ -17,7 +17,7 @@ class DiaFactory extends Factory
     public function definition(): array
     {
         return [
-            'dia' => now(),
+            'dia' => fake()->dateTimeBetween('-2 week', '-1 week'),
         ];
     }
 }

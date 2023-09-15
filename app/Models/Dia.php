@@ -14,6 +14,9 @@ class Dia extends Model
     protected $dates = [
         'dia'
     ];
+    protected $fillable = [
+        'dia'
+    ];
 
     public function horarios(): HasMany
     {

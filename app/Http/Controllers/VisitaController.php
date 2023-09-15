@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
 use App\Models\Dia;
+use App\Models\User;
 use App\Models\Visita;
 use App\Models\Horario;
+use Carbon\CarbonPeriod;
 use App\Models\TipoVisita;
 use App\Models\Agendamento;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,27 +29,50 @@ class VisitaController extends Controller
 
     }
 
-    public function create()
+    public function createTipoVisita( Request $request )
     {
+        $tipoVisitas = TipoVisita::all();
+        return view('visita.create-tipovisita', compact('tipoVisitas'));
+
+    }
+
+    public function create( Request $request )
+    {
+        
+        $tipoVisita = TipoVisita::find( $request->tipo_visita_id );
         $tipoVisitas = TipoVisita::all();
         $dias = Dia::all();
         $horarios = Horario::all();
-    
-        return view('visita.create', compact('tipoVisitas', 'dias', 'horarios'));
+
+        return view('visita.create', compact('tipoVisita', 'tipoVisitas'));
     }
 
     public function store(Request $request)
     {
-        $visita = Visita::create( $request->all() );
+        $visita = new Visita();
+        // dd( DateTime::createFromFormat('d/m/Y', $request->dia)  );
+        $dia = Dia::create([
+            'dia' => DateTime::createFromFormat('d/m/Y', $request->dia)
+        ]);
+        // dd(date('H:i', strtotime($request->horario_manha)));
+        $horario = Horario::create([
+            'horario' => $request->horario_manha ? date('H:i', strtotime($request->horario_manha)) : date('H:i', strtotime($request->horario_tarde)),
+            'dia_id' => $dia->id
+        ]);
+
+        $visita->tipo_visita_id = $request->tipo_visita_id;
+        $visita->save();
         
-        // dd( $request->all() );
+        
         $agendamento = Auth::user()
                             ->agendamentos()
                             ->create( [
+                                'nome' => $visita->tipoVisita->nome,
                                 'visita_id' => $visita->id,
-                                'dia_id' => intval( $request->dia ) ,
-                                'horario_id' => intval( $request->horario ) 
+                                'dia_id' => $dia->id ,
+                                'horario_id' => $horario->id
                             ] );
+        // dd( $agendamento );
         // if( Auth::user()->tipo == User::TIPO_ENUM['admin'] ){
 
         // }
@@ -77,10 +102,12 @@ class VisitaController extends Controller
     public function delete( $id)
     {
         $agendamento = Agendamento::find($id);
-        $visita = Visita::find($agendamento->visita->id);
-        $visita->delete();
+        // $visita = Visita::find($agendamento->visita->id);
+        // $visita->delete();
         $agendamento->delete();
-
-        return redirect()->route('visita.index')->with(['message' => "Removido com sucesso!", 'class' => 'success']);
+        if( Auth::user()->tipo === User::TIPO_ENUM['admin'] ){
+            return redirect()->route('visita.index')->with(['message' => "Removido com sucesso!", 'class' => 'success']);
+        }
+        return redirect()->route('visita.minhasVisitas')->with(['message' => "Removido com sucesso!", 'class' => 'success']);
     }
 }

@@ -18,7 +18,7 @@
                 </div>
                 <div class="p-6 col-end-8 col-span-1">
                     @if (request()->routeIs('visita.minhasVisitas'))
-                        <x-nav-link :href="route('visita.create')" >
+                        <x-nav-link :href="route('visita.createTipoVisita')" >
                             <x-primary-button>Adicionar</x-primary-button>
                         </x-nav-link>                        
                     @endif
@@ -36,12 +36,16 @@
                         </tr>
                     </thead>
                     <tbody class="text-gray-600 text-sm font-light">
+                        {{-- @dd( $agendamentos[1]->visita ) --}}
                         @foreach ($agendamentos as $agendamento)
-
+                            {{-- @php
+                                print( $agendamento);
+                                print( "############" );
+                            @endphp --}}
                             <tr class="border-b border-gray-200 hover:bg-gray-100">
                                 <td class="py-3 px-6 text-left whitespace-nowrap">
                                     <div class="flex items-center">
-                                        <span class="font-medium">{{ $agendamento->visita->tipoVisita->nome }}</span>
+                                        <span class="font-medium">{{ $agendamento->nome }}</span>
                                     </div>
                                 </td>
                                 <td class="py-3 px-6 text-left">
@@ -63,12 +67,13 @@
                                 <td class="py-3 px-6 text-center">
                                     <div class="flex item-center justify-center">
                                         <div class="w-4 mr-2 transform hover:text-gray-900 hover:scale-110">
-                                            <a href="{{ route('visita.show', ['id' => $agendamento->visita->id]) }}">
+                                            <a href="{{ route('visita.show', ['id' => $agendamento->id]) }}">
                                                 <span >
                                                     <i class="fa-solid fa-eye"></i>
                                                 </span>
                                             </a>    
                                         </div>
+                                        @can('admin')
                                         <div class="w-4 mr-2 transform hover:text-gray-900 hover:scale-110">
                                             <a href="{{ route('visita.edit', ['id' => $agendamento->id]) }}">
                                                 <span >
@@ -76,6 +81,7 @@
                                                 </span>
                                             </a>                         
                                         </div>
+                                        @endcan
                                         <div class="w-4 mr-2 transform hover:text-gray-900 hover:scale-110">
                                             <a href="{{ route('visita.delete', ['id' => $agendamento->id]) }}">
                                                 <span >

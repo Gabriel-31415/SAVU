@@ -52,32 +52,32 @@ class DatabaseSeeder extends Seeder
         
         DB::table('tipo_visitas')->insert([
             'nome' => 'Laboratório de Microorganismos de rúmen',
-            'descricao' => '12345678912',
-            'duracao' => '12345678912',
+            'descricao' => 'Visita a Laboratório de Microorganismos de rúmen',
+            'duracao' => '1h',
         ]);
         
         DB::table('tipo_visitas')->insert([
             'nome' => 'Polinização',
-            'descricao' => '12345678912',
-            'duracao' => '12345678912',
+            'descricao' => 'Visita a Polinização',
+            'duracao' => '1h',
         ]);
         
         DB::table('tipo_visitas')->insert([
-            'nome' => 'Visita ao Museu de Ciência Animal',
-            'descricao' => '12345678912',
-            'duracao' => '12345678912',
+            'nome' => 'Museu de Ciência Animal',
+            'descricao' => 'Visita ao Museu de Ciência Animal',
+            'duracao' => '1h',
         ]);
         
         DB::table('tipo_visitas')->insert([
             'nome' => 'Exposição de solos',
-            'descricao' => '12345678912',
-            'duracao' => '12345678912',
+            'descricao' => 'Visita a exposição de solos',
+            'duracao' => '1h',
         ]);
         
         DB::table('tipo_visitas')->insert([
             'nome' => 'UFAPE: cursos e instalações',
-            'descricao' => '12345678912',
-            'duracao' => '12345678912',
+            'descricao' => 'Visita a UFAPE: cursos e instalações',
+            'duracao' => '1h',
         ]);
 
         \App\Models\User::factory(10)->create();

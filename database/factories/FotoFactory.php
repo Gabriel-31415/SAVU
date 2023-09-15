@@ -20,7 +20,7 @@ class FotoFactory extends Factory
         return [
             'path' => fake()->imageUrl(640, 480, 'animals', true),
             'descricao' => fake()->name(),
-            'tipo_visita_id' => TipoVisita::find(1)->id
+            'tipo_visita_id' => fake()->numberBetween(1, 5)
         ];
     }
 }

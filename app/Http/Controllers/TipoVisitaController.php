@@ -23,22 +23,34 @@ class TipoVisitaController extends Controller
 
     public function store(Request $request)
     {
+        // dd( $request->all() );
         $tipoVisita = TipoVisita::create( $request->all() );
+        $tipoVisita->funciona_domingo = $request->has('funciona_domingo') ?? false;
+        $tipoVisita->funciona_segunda = $request->has('funciona_segunda') ?? false; 
+        $tipoVisita->funciona_terca   = $request->has('funciona_terca') ?? false;
+        $tipoVisita->funciona_quarta  = $request->has('funciona_quarta') ?? false; 
+        $tipoVisita->funciona_quinta  = $request->has('funciona_quinta') ?? false; 
+        $tipoVisita->funciona_sexta   = $request->has('funciona_sexta') ?? false;
+        $tipoVisita->funciona_sabado  = $request->has('funciona_sabado') ?? false;
+        $tipoVisita->save();
+
         if( Auth::user()->tipo === User::TIPO_ENUM['professor'] ){
             $tipoVisita->aprovado = TipoVisita::TIPO_ENUM['aguardando'];
             $tipoVisita->save();
         }
-        foreach ($request->file('images') as $imagefile) {
-            $foto = new Foto;
-            $path = $imagefile->storeAs(
-                'img',
-                $tipoVisita->id.'/'.$imagefile->getClientOriginalName(),
-                'public'
-            );
-            $foto->path = $path;
-            $foto->descricao = "imagem";
-            $foto->tipo_visita_id = $tipoVisita->id;
-            $foto->save();
+        if( $request->has('images') ){
+            foreach ($request->file('images') as $imagefile) {
+                $foto = new Foto;
+                $path = $imagefile->storeAs(
+                    'img',
+                    $tipoVisita->id.'/'.$imagefile->getClientOriginalName(),
+                    'public'
+                );
+                $foto->path = $path;
+                $foto->descricao = "imagem";
+                $foto->tipo_visita_id = $tipoVisita->id;
+                $foto->save();
+            }
         }
 
         return redirect()->route('tipoVisita.index')->with(['message' => "Success!", 'class' => 'success']);
@@ -59,7 +71,17 @@ class TipoVisitaController extends Controller
     public function update(Request $request, $id)
     {
         $tipoVisita = TipoVisita::find($id);
+
         $tipoVisita->update($request->all());
+
+        $tipoVisita->funciona_domingo = $request->has('funciona_domingo') ?? false;
+        $tipoVisita->funciona_segunda = $request->has('funciona_segunda') ?? false; 
+        $tipoVisita->funciona_terca   = $request->has('funciona_terca') ?? false;
+        $tipoVisita->funciona_quarta  = $request->has('funciona_quarta') ?? false; 
+        $tipoVisita->funciona_quinta  = $request->has('funciona_quinta') ?? false; 
+        $tipoVisita->funciona_sexta   = $request->has('funciona_sexta') ?? false;
+        $tipoVisita->funciona_sabado  = $request->has('funciona_sabado') ?? false;
+        $tipoVisita->save();
 
         return redirect()->route('tipoVisita.index')->with(['message' => "Atualizado!", 'class' => 'success']);
     }

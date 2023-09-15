@@ -34,6 +34,7 @@
                     <thead>
                         <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                             <th class="py-3 px-6 text-left">Tipo</th>
+                            <th class="py-3 px-6 text-left">Horário disponível</th>
                             <th class="py-3 px-6 text-left">Descricao</th>
                             <th class="py-3 px-6 text-center">Duração</th>
                             <th class="py-3 px-6 text-center">Actions</th>
@@ -50,7 +51,22 @@
                                 </td>
                                 <td class="py-3 px-6 text-left">
                                     <div class="flex items-center">
-
+                                        @if ( !$tipoVisita->manha_inicio || !$tipoVisita->manha_fim )
+                                            <span>{{ 'De --:-- ás --:--' }}</span>
+                                        @else
+                                            <span>{{ 'De ' . date('H:i', strtotime($tipoVisita->manha_inicio)) . ' às ' . date('H:i', strtotime($tipoVisita->manha_fim)) }}</span>
+                                        @endif
+                                    </div>
+                                    <div class="flex items-center">
+                                        @if ( !$tipoVisita->tarde_inicio || !$tipoVisita->tarde_fim )
+                                            <span>{{ 'De --:-- ás --:--' }}</span>
+                                        @else
+                                            <span>{{ 'De ' . date('H:i', strtotime($tipoVisita->tarde_inicio)) . ' às ' . date('H:i', strtotime($tipoVisita->tarde_fim)) }}</span>
+                                        @endif
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-left">
+                                    <div class="flex items-center">
                                         <span>{{ Str::limit($tipoVisita->descricao, 30) }}</span>
                                     </div>
                                 </td>
@@ -68,13 +84,15 @@
                                                 </span>
                                             </a>    
                                         </div>
-                                        <div class="w-4 mr-2 transform hover:text-gray-900 hover:scale-110">
-                                            <a href="{{ route('tipoVisita.edit', ['id' => $tipoVisita->id]) }}">
-                                                <span >
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </span>
-                                            </a>                         
-                                        </div>
+                                        @can('admin')
+                                            <div class="w-4 mr-2 transform hover:text-gray-900 hover:scale-110">
+                                                <a href="{{ route('tipoVisita.edit', ['id' => $tipoVisita->id]) }}">
+                                                    <span >
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </span>
+                                                </a>                         
+                                            </div>
+                                        @endcan
                                         <div class="w-4 mr-2 transform hover:text-gray-900 hover:scale-110">
                                             <a href="{{ route('tipoVisita.delete', ['id' => $tipoVisita->id]) }}">
                                                 <span >

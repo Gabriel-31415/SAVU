@@ -13,18 +13,7 @@
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="https://kit.fontawesome.com/fbdbbdfaec.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/datepicker.min.js"></script>
-        <script>
-            tailwind.config = {
-            theme: {
-                    extend: {
-                    colors: {
-                        clifford: '#da373d',
-                        'whiteGray': '#ebebeb'
-                    }
 
-                }
-            }
-        </script>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>

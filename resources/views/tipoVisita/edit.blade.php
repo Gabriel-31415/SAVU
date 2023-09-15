@@ -39,6 +39,71 @@
 						>
                         </x-text-input>
                     </div>
+                    <div class="flex flex-row" >
+                        <div class="basis-1/6 pr-4">
+                            <x-input-label>De</x-input-label>
+                            <x-text-input
+                                type="time"
+                                class="w-full mt-2 mb-6 px-3 py-2 text-gray-700 border rounded-lg focus:outline-none"
+                                name="manha_inicio"
+                                value="{{ $tipoVisita->manha_inicio }}">
+                            </x-text-input>
+                        </div>
+                        <div class="basis-1/6">
+                            <x-input-label>às</x-input-label>
+                            <x-text-input
+                                type="time"
+                                class="w-full mt-2 mb-6 px-3 py-2 text-gray-700 border rounded-lg focus:outline-none"
+                                name="manha_fim"
+                                value="{{ $tipoVisita->manha_fim }}">
+                            </x-text-input>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-row" >
+                        <div class="basis-1/6 pr-4">
+                            <x-input-label>De</x-input-label>
+                            <x-text-input
+                                type="time"
+                                class="w-full mt-2 mb-6 px-3 py-2 text-gray-700 border rounded-lg focus:outline-none"
+                                name="tarde_inicio"
+                                value="{{ $tipoVisita->tarde_inicio }}">
+                            </x-text-input>
+                        </div>
+                        <div class="basis-1/6">
+                            <x-input-label>às</x-input-label>
+                            <x-text-input
+                                type="time"
+                                class="w-full mt-2 mb-6 px-3 py-2 text-gray-700 border rounded-lg focus:outline-none"
+                                name="tarde_fim"
+                                value="{{ $tipoVisita->tarde_fim }}">
+                            </x-text-input>
+                        </div>
+                    </div>
+                    <div >
+                        <x-input-label>Dias da Semana</x-input-label>
+                        <input @if( $tipoVisita->funciona_segunda ) @checked(true) @endif type="checkbox" name="funciona_segunda" id="checkbox-1">
+                        <x-input-label-span>Segunda</x-input-label-span>
+                        <br>
+                        <input @if( $tipoVisita->funciona_terca ) @checked(true) @endif type="checkbox" name="funciona_terca" id="checkbox-2">
+                        <x-input-label-span>Terça</x-input-label-span>
+                        <br>
+                        <input @if( $tipoVisita->funciona_quarta ) @checked(true) @endif type="checkbox" name="funciona_quarta" id="checkbox-3">
+                        <x-input-label-span>Quarta</x-input-label-span>
+                        <br>
+                        <input @if( $tipoVisita->funciona_quinta ) @checked(true) @endif type="checkbox" name="funciona_quinta" id="checkbox-4">
+                        <x-input-label-span>Quinta</x-input-label-span>
+                        <br>
+                        <input @if( $tipoVisita->funciona_sexta ) @checked(true) @endif type="checkbox" name="funciona_sexta" id="checkbox-5">
+                        <x-input-label-span>Sexta</x-input-label-span>
+                        <br>
+                        <input @if( $tipoVisita->funciona_sabado ) @checked(true) @endif type="checkbox" name="funciona_sabado" id="checkbox-6">
+                        <x-input-label-span>Sábado</x-input-label-span>
+                        <br>
+                        <input @if( $tipoVisita->funciona_domingo ) @checked(true) @endif type="checkbox" name="funciona_domingo" id="checkbox-7">
+                        <x-input-label-span>Domingo</x-input-label-span>
+
+                    </div>
                     {{-- <div >
                         <x-input-label>image</x-input-label>
                         <input

@@ -19,8 +19,7 @@ class VisitaFactory extends Factory
     {
         return [
             'descricao' => fake()->unique()->safeEmail(),
-            'status' => fake()->name(),
-            'tipo_visita_id' => TipoVisita::find(1)->id
+            'tipo_visita_id' => fake()->numberBetween(1, 5)
         ];
     }
 }

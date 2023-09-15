@@ -18,8 +18,8 @@ class HorarioFactory extends Factory
     public function definition(): array
     {
         return [
-            'horario' => now(),
-            'dia_id' => Dia::factory()
+            'horario' => fake()->time($format = 'H:i:s', $max = 'now'),
+            'dia_id' => fake()->numberBetween(1, 5)
         ];
     }
 }
