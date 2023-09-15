@@ -63,14 +63,22 @@
                         <x-input-label>Tipo de Visita</x-input-label>
                         <x-text-input
                             class="w-full mt-2 mb-6 px-3 py-2 text-gray-700 border rounded-lg focus:outline-none"
-                            name="descricao" value="{{ $agendamento->visita->tipoVisita->nome }}">
+                            name="descricao" value="{{ $agendamento->nome }}">
                         </x-text-input>
                     </div>
                     <div >
+                        @php
+                            if (!$agendamento->visita->tipoVisita) {
+                                $descricao = "-";
+                            }else {
+                                $descricao = $agendamento->visita->tipoVisita->descricao;
+                            }
+                        @endphp
                         <x-input-label>Descrição</x-input-label>
                         <x-text-input
                             class="w-full mt-2 mb-6 px-3 py-2 text-gray-700 border rounded-lg focus:outline-none"
-                            name="duracao" value="{{ $agendamento->visita->tipoVisita->descricao }}">
+                            name="duracao" 
+                            value="{{  $descricao }}" >
                         </x-text-input>
                     </div>
                     <div >
@@ -85,7 +93,25 @@
 
             <br>
             <br>
-              
+            {{-- @dd( Auth::user()->tipo ) --}}
+            @can('aprovar-visita')
+                <x-primary-button>
+                    <a href="{{ route('visita.aprovar', ['id' => $agendamento->visita->id]) }}">
+                        <span >
+                            <i class="fa-solid fa-check"></i>
+                            Aprovar
+                        </span>
+                    </a>    
+                </x-primary-button>
+                <x-primary-button>
+                    <a href="{{ route('visita.reprovar', ['id' => $agendamento->visita->id]) }}">
+                        <span >
+                            <i class="fa-solid fa-x"></i>
+                            Reprovar
+                        </span>
+                    </a>                         
+                </x-primary-button>                
+            @endcan
             <x-primary-button  class="bg-green-500">
                 <a href="{{ url()->previous() }}">
                     Voltar

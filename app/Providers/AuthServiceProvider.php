@@ -48,7 +48,8 @@ class AuthServiceProvider extends ServiceProvider
         });
     
         Gate::define('aprovar-visita', function ($user) {
-            return $user->tipo == User::TIPO_ENUM['admin'];
+            return $user->tipo == User::TIPO_ENUM['admin']||
+            $user->tipo == User::TIPO_ENUM['professor'];
         });
     
         Gate::define('editar-visita', function ($user) {

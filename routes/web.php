@@ -45,6 +45,8 @@ Route::middleware('auth')->prefix('visita')->name('visita.')->group(function () 
     Route::post('/store', [VisitaController::class, 'store'])->name('store');
     Route::get('/edit/{id}', [VisitaController::class, 'edit'])->name('edit');
     Route::get('/show/{id}', [VisitaController::class, 'show'])->name('show');
+    Route::get('/aprovar/visita/{id}', [VisitaController::class, 'aprovar'])->name('aprovar');
+    Route::get('/reprovar/visita/{id}', [VisitaController::class, 'reprovar'])->name('reprovar');
     Route::post('/update/{id}', [VisitaController::class, 'update'])->name('update');
     Route::get('/delete/{id}', [VisitaController::class, 'delete'])->name('delete');
 });
