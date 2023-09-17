@@ -50,6 +50,12 @@ class VisitaController extends Controller
 
     public function store(Request $request)
     {
+
+        $validatedData = $request->validate([
+            'horario_manha' => ['required_if:horario_tarde,==,null'],
+            'horario_tarde' => ['required_if:horario_manha,==,null']
+        ]);
+
         $visita = new Visita();
         // dd( DateTime::createFromFormat('d/m/Y', $request->dia)  );
         $dia = Dia::create([
@@ -73,10 +79,7 @@ class VisitaController extends Controller
                                 'dia_id' => $dia->id ,
                                 'horario_id' => $horario->id
                             ] );
-        // dd( $agendamento );
-        // if( Auth::user()->tipo == User::TIPO_ENUM['admin'] ){
 
-        // }
         return redirect()->route('visita.minhasVisitas')->with(['message' => "Success!", 'class' => 'success']);
     }
 

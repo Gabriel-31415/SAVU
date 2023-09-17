@@ -89,7 +89,7 @@
                         </x-text-input>
                     </div>
                 </x-card>
-              </div>
+            </div>
 
             <br>
             <br>

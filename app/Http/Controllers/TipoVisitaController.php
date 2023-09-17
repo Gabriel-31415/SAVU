@@ -24,6 +24,18 @@ class TipoVisitaController extends Controller
     public function store(Request $request)
     {
         // dd( $request->all() );
+
+        $validatedData = $request->validate([
+            'nome' => ['required'],
+            'descricao' => ['required'],
+            'duracao' => ['required'],
+            'manha_inicio' => ['required'],
+            'manha_fim' => ['required'],
+            'tarde_inicio' => ['required'],
+            'tarde_fim' => ['required'],
+            'images' => ['required']
+        ]);
+
         $tipoVisita = TipoVisita::create( $request->all() );
         $tipoVisita->funciona_domingo = $request->has('funciona_domingo') ?? false;
         $tipoVisita->funciona_segunda = $request->has('funciona_segunda') ?? false; 
