@@ -35,7 +35,7 @@
                 @can('ver-tipo-visita')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('tipoVisita.index')" :active="request()->routeIs('tipoVisita.index')">
-                            {{ __('Tipo Visitas') }}
+                            {{ __('Tipo de Visitas') }}
                         </x-nav-link>
                     </div>
                 @endcan
