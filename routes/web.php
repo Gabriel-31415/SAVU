@@ -41,7 +41,7 @@ Route::middleware('auth')->prefix('visita')->name('visita.')->group(function () 
     Route::get('/index', [VisitaController::class, 'index'])->name('index');
     Route::get('/minhasVisitas', [VisitaController::class, 'minhasVisitas'])->name('minhasVisitas');
     Route::get('/create/tipovisita', [VisitaController::class, 'createTipoVisita'])->name('createTipoVisita');
-    Route::post('/create', [VisitaController::class, 'create'])->name('create');
+    Route::get('/create', [VisitaController::class, 'create'])->name('create');
     Route::post('/store', [VisitaController::class, 'store'])->name('store');
     Route::get('/edit/{id}', [VisitaController::class, 'edit'])->name('edit');
     Route::get('/show/{id}', [VisitaController::class, 'show'])->name('show');

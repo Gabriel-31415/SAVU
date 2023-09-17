@@ -8,7 +8,13 @@
 
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 justify-center">
-
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <div class="p-2 mb-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                        {{ $error }}
+                    </div>
+                @endforeach
+            @endif
             <form action="{{ route('tipoVisita.update', ['id' => $tipoVisita->id]) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="grid grid-cols-1 gap-4">

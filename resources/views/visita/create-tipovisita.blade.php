@@ -9,7 +9,7 @@
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 justify-center">
 
-            <form action="{{ route('visita.create') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('visita.create') }}" method="get" enctype="multipart/form-data">
                 @csrf
                 <div class="grid grid-cols-1 gap-4">
                     <div>
