@@ -11,13 +11,11 @@
                 </div>
 
                 <!-- Navigation Links -->
-                @can('ver-visita')
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                            {{ __('Dashboard') }}
-                        </x-nav-link>
-                    </div>
-                @endcan
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Tela Inicial') }}
+                    </x-nav-link>
+                </div>
                 @can('ver-minha-visita')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('visita.minhasVisitas')" :active="request()->routeIs('visita.minhasVisitas')">
