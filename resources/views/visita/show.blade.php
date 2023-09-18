@@ -28,7 +28,17 @@
                         </x-text-input>
                     </div>
                     <div >
-                        <x-input-label>Whatsapp</x-input-label>
+                        <x-input-label>
+                            Whatsapp
+                            <span class=" bg-green-600 rounded-lg p-2">
+                                <a aria-label="Chat com WhatsApp" href="https://wa.me/{{ $agendamento->user->whatsapp }}">    
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                    Chat com WhatsApp                                
+                                </a>
+
+                            </span>
+                        </x-input-label>
+
                         <x-text-input
                             class="w-full mt-2 mb-6 px-3 py-2 text-gray-700 border rounded-lg focus:outline-none"
                             name="nome" value="{{ $agendamento->user->whatsapp }}">

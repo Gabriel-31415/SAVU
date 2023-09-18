@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Solicitaçoes') }}
+            {{ __('Solicitações') }}
         </h2>
     </x-slot>
 
@@ -14,7 +14,7 @@
             @endif
             <div class="bg-white grid grid-cols-6 gap-4 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 col-start-1 col-end-3 text-gray-900 dark:text-gray-100 mt-2">
-                    {{ __('Solicitaçoes') }}
+                    {{ __('Solicitações') }}
                 </div>
                 
             </div>
