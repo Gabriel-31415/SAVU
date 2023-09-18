@@ -82,13 +82,43 @@
                             </x-text-input>
                         </div>
                     </div>
+
+                    <div>
+                        <x-input-label>Dias da Semana</x-input-label>
+                        <div class="p-2">
+                            <input @checked( $tipoVisita->funciona_segunda ) type="checkbox" name="funciona_segunda" id="checkbox-1">
+                            <x-input-label-span>Segunda</x-input-label-span>
+                            <br>
+                            <input @checked( $tipoVisita->funciona_terca ) type="checkbox" name="funciona_terca" id="checkbox-2">
+                            <x-input-label-span>Terça</x-input-label-span>
+                            <br>
+                            <input @checked( $tipoVisita->funciona_quarta ) type="checkbox" name="funciona_quarta" id="checkbox-3">
+                            <x-input-label-span>Quarta</x-input-label-span>
+                            <br>
+                            <input @checked( $tipoVisita->funciona_quinta ) type="checkbox" name="funciona_quinta" id="checkbox-4">
+                            <x-input-label-span>Quinta</x-input-label-span>
+                            <br>
+                            <input @checked( $tipoVisita->funciona_sexta ) type="checkbox" name="funciona_sexta" id="checkbox-5">
+                            <x-input-label-span>Sexta</x-input-label-span>
+                            <br>
+                            <input @checked( $tipoVisita->funciona_sabado ) type="checkbox" name="funciona_sabado" id="checkbox-6">
+                            <x-input-label-span>Sábado</x-input-label-span>
+                            <br>
+                            <input @checked( $tipoVisita->funciona_domingo ) type="checkbox" name="funciona_domingo" id="checkbox-7">
+                            <x-input-label-span>Domingo</x-input-label-span>
+                        </div>
+                    </div>
+
                     <x-input-label>Imagens</x-input-label>
                     <div class="justify-center">
-                        @foreach ($tipoVisita->fotos as $foto)
+                        @forelse ($tipoVisita->fotos as $foto)
                             <div class="mr-12 p-4">
                                 <img class="h-auto max-w-lg mx-auto"  src="{{  asset('storage/'.$foto->path) }}" alt="image description">
                             </div>
-                        @endforeach
+                        @empty
+                            <x-input-label-span class="pl-4">Não há imagens</x-input-label-span>
+                        @endforelse
+
                     </div>
                 </x-card>
             </div>
