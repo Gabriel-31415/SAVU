@@ -34,6 +34,7 @@
 <h3><a href = "https://docs.google.com/document/d/1lvgVz0r3WXYROUuT3VwSLuTwXXGf8O_aswJjMAnBja4/edit?usp=drive_link" target="_blank">MER</a></h3>
 <h3><a href = "https://docs.google.com/document/d/1EZ6AqvUHf-8joce-iO_EB7RvtJeN-KL0/edit?usp=drive_link&ouid=108367508460107310368&rtpof=true&sd=true" target="_blank">Plano de Projeto</a></h3>
 <h3><a href = "https://drive.google.com/file/d/1mDJBu45rEUSNMVPsWwTebXmZ5-6_uI5B/view?usp=drive_link" target="_blank">Pitch</a></h3>
+<h3><a href = "https://github.com/orgs/Projeto-Des-SW/projects/13/views/1" target="_blank">Projetc do projeto</a></h3>
 
 <h1>Tecnologias Usadas:</h1>
 
